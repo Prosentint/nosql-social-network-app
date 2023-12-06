@@ -2,7 +2,7 @@ const { User, Thought } = require("../models");
 
 const UserController = {
   // Create User
-  createNewUser({ body }, res) {
+  createUser({ body }, res) {
     User.create(body)
       .then((userData) => res.json(userData))
       .catch((error) => res.json(error));
@@ -49,7 +49,7 @@ const UserController = {
   },
 
   // Update User by ID
-  updateUserById({ params, body }, res) {
+  updateUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: params.id }, body, {
       new: true,
       runValidators: true,
@@ -65,7 +65,7 @@ const UserController = {
   },
 
   // Remove User by ID
-  deleteUserById({ params }, res) {
+  deleteUser({ params }, res) {
     User.findOneAndDelete({ _id: params.id })
       .then((userData) => {
         if (!userData) {
