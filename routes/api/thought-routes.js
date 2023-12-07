@@ -12,7 +12,7 @@ const {
 // Route (get or post): /api/thoughts
 router.route("/").get(getAllThoughts).post(createThought);
 
-// Route (get, post, or delete): Route/api/thoughts/:id
+// Route (get, put, or delete): Route/api/thoughts/:id
 router
   .route("/:id")
   .get(getThoughtById)
